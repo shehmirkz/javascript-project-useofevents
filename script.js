@@ -59,14 +59,39 @@ var students = [
 
 ];
 
-var tableHeading = document.getElementById('table-heading');
-var tableBody = document.getElementById('table-data');
+var mainTable = document.getElementById('project');
+
+let table = document.createElement('table');
+table.classList.add('table', 'table-striped', 'table-hover');
+mainTable.appendChild(table);
+
+
+let tableHead = document.createElement('thead');
+table.appendChild(tableHead);
+
+let tableBody = document.createElement('tbody');
+table.appendChild(tableBody);
+
+
+
 
 students.forEach((student, index) => {
     let row = document.createElement('tr');
+    tableHead.appendChild(row);
     tableBody.appendChild(row);
 
- 
+
+    
+    if (index === 0) {
+        for(const key in student) {
+        console.log(`${key}: ${student[key]}`);
+        let heading = document.createElement('th');
+        heading.innerText = key.toUpperCase();
+        tableHead.appendChild(heading);
+    }
+}
+
+
     for(const value in student) {
         console.log(`${value}: ${student}`);
         let column = document.createElement('td');
@@ -87,8 +112,6 @@ students.forEach((student, index) => {
     }
 
 
-
-    
         //ADD BUTTON//
     let addButtononTd = document.createElement('td');
     let addButton = document.createElement('Button');
@@ -104,28 +127,9 @@ students.forEach((student, index) => {
 
 
 
-    if (index === 0) {
-            for(const key in student) {
-            console.log(`${key}: ${student[key]}`);
-            let heading = document.createElement('th');
-            heading.innerText = key.toUpperCase();
-            tableHeading.appendChild(heading);
-        }
-    }
 
     
-   
- 
-            
-    // function creatButton () {
-    //     let addButton = document.querySelectorAll('td')
-    //     for (let i = 0; i > student.length; i++) {
-    //         console.log(tableButton[i]);
-    //         var creatButton = document.createElement('button');
-    //         creatButton.appendChild(document.createTextNode('Delete'));
-    //         addButton[i].appendChild('btn');
-    //     }
-    // }
+
 
 
   

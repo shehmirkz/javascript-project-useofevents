@@ -69,3 +69,22 @@ students.forEach(student => {
 
 
 })
+
+
+
+
+
+
+
+   
+ 
+            
+    // function creatButton () {
+    //     let addButton = document.querySelectorAll('td')
+    //     for (let i = 0; i > student.length; i++) {
+    //         console.log(tableButton[i]);
+    //         var creatButton = document.createElement('button');
+    //         creatButton.appendChild(document.createTextNode('Delete'));
+    //         addButton[i].appendChild('btn');
+    //     }
+    // }
