@@ -60,54 +60,55 @@ let students = [
 ];
 
 
-let officeEmployees = [
-    {
-        employee: 'Shoukat Memon',
-        Job: 'Executive Engineer',
-        age: '30',
-        Address: 'Tando Allahyar',   
-    },
-    {
-        employee: 'Naeem Zaidi',
-        job: 'Assistant Engineer',
-        age: '30',
-        Address: 'Tando Allahyar',
-    },
-    {
-        employee: 'Aijaz Malik',
-        job: 'Senior Engineer',
-        age: '30',
-        Address: 'Tando Allahyar',
-    },
-    {
-        employee: 'Muhammad Sajid',
-        job: 'Sub-Engineer',
-        age: '30',
-        Address: 'Tando Allahyar',
-    },
-    {
-        employee: 'Abdul Qadir',
-        job: 'Head Draightsman',
-        age: '30',
-        Address: 'Tando Allahyar',
-    },
-    {
-        employee: 'Abdul Jabbar',
-        job: 'Head Clerk',
-        age: '30',
-        Address: 'Tando Allahyar',
-    },
-];
+// let officeEmployees = [
+//     {
+//         employee: 'Shoukat Memon',
+//         Job: 'Executive Engineer',
+//         age: '30',
+//         Address: 'Tando Allahyar',   
+//     },
+//     {
+//         employee: 'Naeem Zaidi',
+//         job: 'Assistant Engineer',
+//         age: '30',
+//         Address: 'Tando Allahyar',
+//     },
+//     {
+//         employee: 'Aijaz Malik',
+//         job: 'Senior Engineer',
+//         age: '30',
+//         Address: 'Tando Allahyar',
+//     },
+//     {
+//         employee: 'Muhammad Sajid',
+//         job: 'Sub-Engineer',
+//         age: '30',
+//         Address: 'Tando Allahyar',
+//     },
+//     {
+//         employee: 'Abdul Qadir',
+//         job: 'Head Draightsman',
+//         age: '30',
+//         Address: 'Tando Allahyar',
+//     },
+//     {
+//         employee: 'Abdul Jabbar',
+//         job: 'Head Clerk',
+//         age: '30',
+//         Address: 'Tando Allahyar',
+//     },
+// ];
+
 
 
 
 let renderTable = (items, elementId) => {
-
-    let mainTable = document.getElementById(elementId);
+    let conatiner = document.getElementById(elementId)
+    conatiner.innerHTML = '';
 
     let table = document.createElement('table');
     table.classList.add('table', 'table-striped', 'table-hover');
-    mainTable.appendChild(table);
+    conatiner.appendChild(table);
     
     
     let tableHead = document.createElement('thead');
@@ -117,16 +118,13 @@ let renderTable = (items, elementId) => {
     let tableBody = document.createElement('tbody');
     table.appendChild(tableBody);
     
-    
-    
-    
+
     items.forEach((student, index) => {
         let row = document.createElement('tr');
         tableHead.appendChild(row);
         tableBody.appendChild(row);
+
     
-    
-        
         if (index === 0) {
             for(const key in student) {
             console.log(`${key}: ${student[key]}`);
@@ -152,24 +150,71 @@ let renderTable = (items, elementId) => {
         deleteButtonTd.appendChild(deleteButton);
         row.appendChild(deleteButtonTd);
     
-        deleteButton.onclick = function () {
-            tableBody.removeChild(row);
+        deleteButton.onclick = () => {
+            // console.log(index);
+           students.splice(index, 1);
+            renderTable(students, 'project');
         }
-    
+
     
             //ADD BUTTON//
         let addButtononTd = document.createElement('td');
         let addButton = document.createElement('Button');
         addButton.classList.add('btn', 'btn-primary');
-        addButton.innerText = 'Add';
+        addButton.innerText = 'Edit';
         addButtononTd.appendChild(addButton);
         row.appendChild(addButtononTd);
     
-        addButton.onclick = function () {
-            tableBody.appendChild(row);
+
+        addButton.onclick = () => {
+            document.getElementById('Inputfname').value = student.fname;
+            document.getElementById('Inputlname').value = student.lname;
+            document.getElementById('inputAge').value = student.age;
+            document.getElementById('inputDesig').value = student.desig;
+            document.getElementById('inputTeacherN').value = student.teacherN;
+            document.getElementById('inputAddress').value = student.address;
+
         }
     })   
 }
-renderTable(students, 'project');
+        renderTable(students, 'project');
 
-renderTable(officeEmployees, 'testing');
+
+
+
+
+let myForm = document.getElementById('myForm');
+
+myForm.addEventListener('submit', (e) => {
+
+    e.preventDefault();
+
+        let fname = document.getElementById('Inputfname').value
+            // console.log(fname);
+        let lname = document.getElementById('Inputlname').value
+            // console.log(lname);
+        let age = document.getElementById('inputAge').value
+            // console.log(age);
+        let desig = document.getElementById('inputDesig').value
+            // console.log(desig);
+        let teacherN = document.getElementById('inputTeacherN').value
+            // console.log(teacherN);
+        let address = document.getElementById('inputAddress').value
+            // console.log(address);
+
+            let item = {fname, lname, age, desig, teacherN, address};
+            console.log(item);
+            students.push(item);
+            renderTable(students, 'project');
+})
+
+
+// let secondTable = document.createElement('table');
+// secondTable.classList.add('table', 'table-striped');
+// mainTable.appendChild(secondTable);
+
+// let secondThead = document.createElement('thead');
+// secondTable.appendChild(secondThead);
+
+// let secondTbody = document.createElement('tbody');
+// secondTable.appendChild(secondTbody);

@@ -11,16 +11,50 @@
 <body>
 
 
+
     
     <div class="container">
         <div class="row">
-            <div class="col-12" id="project">
+            <div class="col-12">
+                <form id="myForm">
+                    <div>
+                      <label for="Inputfname" class="form-label">First Name</label>
+                      <input type="fname" class="form-control" id="Inputfname" aria-describedby="fnameHelp" required>
+                    </div>
+                    <div>
+                      <label for="Inputlname" class="form-label">Last Name</label>
+                      <input type="lname" class="form-control" id="Inputlname" required>
+                    </div>
+                    <div>
+                        <label for="inputAge" class="form-label">Your Age</label>
+                        <input type="age" class="form-control" id="inputAge" required>
+                      </div>
 
- 
+                      <div>
+                        <label for="inputDesig" class="form-label">Designation</label>
+                        <input type="desig" class="form-control" id="inputDesig" required>
+                      </div>
+                      <div>
+                        <label for="inputTeacherN" class="form-label">Teacher Name</label>
+                        <input type="teacherName" class="form-control" id="inputTeacherN" required>
+                      </div>
+
+                      <div class="mb-1">
+                        <label for="inputAddress" class="form-label">Your Address</label>
+                        <input type="address" class="form-control" id="inputAddress" required>
+                      </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                  </form>
             </div>
+        </div>
+        <div class="row">
+            <div class="col-12" id="project"></div>
             <div id="testing"></div>
         </div>
     </div>
+
+
+
     
 
 

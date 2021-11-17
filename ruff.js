@@ -75,7 +75,29 @@ students.forEach(student => {
 
 
 
+// function addData (evnt) {
+//     evnt.preventDefault();
 
+//     let defineData = {
+//         fname: document.getElementById('Inputfname').value,
+//         lname: document.getElementById('Inputlname').value,
+//         age: document.getElementById('inputAge').value,
+//         desig: document.getElementById('inputDesig').value,
+//         teacherN: document.getElementById('inputTeacherN').value,
+//         address: document.getElementById('inputAddress').value,
+//     }
+
+//     defineData.push(students);
+//     document.forms[0].reset();
+
+//     console.warn('added', {students} );
+//     let pre = document.querySelector('msg pre');
+//     pre.textContent = '\n' + JSON.stringify(movies, '\t', 2)
+// }
+
+// document.addEventListener('btn', () => {
+//     document.getElementById('submit').addEventListener('click', addData);
+// });
    
  
             
@@ -88,3 +110,31 @@ students.forEach(student => {
     //         addButton[i].appendChild('btn');
     //     }
     // }
+
+
+    
+let myForm = document.getElementById('myForm');
+
+
+myForm.addEventListener('submit', (e) => {
+
+    e.preventDefault();
+
+        let fname = document.getElementById('Inputfname').value
+            // console.log(fname);
+        let lname = document.getElementById('Inputlname').value
+            // console.log(lname);
+        let age = document.getElementById('inputAge').value
+            // console.log(age);
+        let desig = document.getElementById('inputDesig').value
+            // console.log(desig);
+        let teacherN = document.getElementById('inputTeacherN').value
+            // console.log(teacherN);
+        let address = document.getElementById('inputAddress').value
+            // console.log(address);
+
+            let item = {fname, lname, age, desig, teacherN, address};
+            console.log(item);
+            Object.assign(students, item);
+})
+     
